@@ -1,0 +1,18 @@
+﻿
+@model DataProvider.Advertisement
+@{
+    ViewBag.Title = Model.adName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row" id="noidung" style="display:initial;">
+        @Html.Raw(@Model.AdDescription.ToString());
+    </div>
+</div>
+    @if (Model.tyepId == 2)
+    {
+        <br />
+         Html.RenderAction("_RoomSlider", "Article"); 
+    }

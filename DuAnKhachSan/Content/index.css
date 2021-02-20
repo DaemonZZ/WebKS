@@ -1,0 +1,632 @@
+﻿@font-face {
+    font-family: "UTMavo";
+    src: url('../fonts/[cnttqn.net] UTM Avo.ttf')
+}
+
+body {
+    font-family: UTMavo;
+    background: url(../Image/bg.png);
+}
+
+a {
+    color: #5a5a5a;
+    -moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .4s ease-in;
+}
+
+img {
+    transition: all .5s ease-in;
+}
+
+.head-banner {
+    background: url(../Image/bg_banner.png) repeat-x;
+}
+
+.opaCarou {
+    opacity: 0.7 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 1);
+}
+
+    .navbar-light .navbar-nav .nav-link:hover {
+        text-decoration: underline;
+    }
+
+.navbar {
+    background: none !important;
+}
+
+    .navbar li a {
+        font-size: 92%;
+    }
+
+.dropdown-item {
+    color: #426b93;
+    font-size: 100% !important;
+    background-color: transparent;
+}
+
+    .dropdown-item:focus, .dropdown-item:hover {
+        color: #000;
+        text-decoration: underline;
+        background-color: #5af;
+    }
+
+.carousel-inner img {
+    width: 130%;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 0;
+}
+
+    .carousel-caption #bookingForm {
+        position: absolute;
+        top: 95%;
+    }
+
+.form-book .form-control {
+    background: transparent;
+    border-bottom: 2px solid #ffffff4f !important;
+    border: none;
+    -webkit-appearance: none;
+    color: #fff;
+}
+
+option {
+    color: #000 !important;
+}
+
+.title_promotions, .title_phong {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    color: dimgray;
+}
+
+.owl-item .promotion {
+    margin-right: 0 !important;
+    width: 383px !important;
+}
+
+.owl-item .owl-room {
+    margin-right: -10px !important;
+}
+
+.owl-item .owl-dinning {
+    margin-right: -10px !important;
+}
+
+.promotion {
+    background-size: 100% 100% !important;
+    height: 278px;
+    -moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+    .promotion::before {
+        content: " ";
+        z-index: 1;
+        background: url('../Image/bg_header_bottom.png') repeat-x bottom;
+        position: absolute;
+        width: 110%;
+        bottom: 0;
+        left: 0;
+        height: 130px;
+    }
+
+    .promotion:hover {
+        background-size: 120% 120% !important;
+    }
+
+.owl-room {
+    height: 600px;
+    background-size: 100% 100% !important;
+    -moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+    .owl-room::before {
+        content: " ";
+        z-index: 1;
+        background: url('../Image/bg_header_bottom.png') repeat-x bottom;
+        position: absolute;
+        width: 110%;
+        bottom: 0;
+        left: 0;
+        height: 400px;
+    }
+
+    .owl-room:hover .owl-room-info {
+        opacity: 1;
+    }
+
+.owl-room-info {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    left: 0;
+    right: -10px;
+    bottom: 0;
+    top: 0;
+    color: #000;
+    -moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    padding: 65px 85px;
+}
+
+.owl-room-summary {
+    font-size: 120%;
+}
+
+    .owl-room-summary img {
+        display: initial !important;
+        width: 5px !important;
+    }
+
+.owl-dinning .dinning-img {
+    height: 600px;
+    background-size: 100% 100% !important;
+    -moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+    .owl-dinning::before {
+        content: " ";
+        z-index: 1;
+        background: url('../Image/bg_header_bottom.png') repeat-x bottom;
+        position: absolute;
+        width: 110%;
+        bottom: 0;
+        left: 0;
+        height: 400px;
+    }
+
+.owl-dinning:hover .dinning-img {
+    filter: blur(10px);
+}
+
+.khung_chu_thich_dinning {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    transition: all .2s ease-in;
+    z-index: 2;
+    color: white;
+    bottom: 14em;
+    background-color: rgba(158, 158, 158,0.3);
+}
+.dinning_title {
+    color: white;
+    font-size: 40px;
+}
+    .dinning_title:hover{
+        color:white !important;
+        text-decoration:none !important;
+    }
+.dinning_summary {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    transition: all .2s ease-in;
+    z-index: 2;
+    color: white;
+    bottom: 2em;
+    font-size:19px;
+}
+
+.owl-theme .owl-controls {
+    z-index: 9;
+}
+
+.owl-theme .owl-controls {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.owl-controls {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    width: 94%;
+}
+
+.owl-next {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: -0px;
+    top: 40%;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+.owl-prev {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 40%;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 1.1rem;
+    padding-left: .7rem;
+}
+
+@media all and (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s;
+        margin-top: 0;
+    }
+
+    .navbar .nav-item:hover .nav-link {
+        color: #fff;
+    }
+
+    .navbar .dropdown-menu.fade-down {
+        top: 80%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+    }
+
+    .navbar .dropdown-menu.fade-up {
+        top: 180%;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        transition: .3s;
+        opacity: 1;
+        visibility: visible;
+        top: 100%;
+        transform: rotateX(0deg);
+    }
+}
+
+.section_footer {
+    background: #37383C url('../Image/bg_footer.jpg') center top;
+    background-size: auto;
+    background-size: 100%;
+    padding: 4em 0 4em 0;
+}
+
+.copyright {
+    text-align: center;
+    color: #a6a6a6;
+    font-size: 14px;
+    line-height: 58px;
+    border-top: 1px solid #616161;
+    margin-top: 23px;
+}
+
+.map_home {
+    height: 416px;
+    margin-top: 8px;
+}
+
+.mask_link:before {
+    content: " ";
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+}
+
+.khung_pro_sys_home_ten p a.ten_km_home {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 18px;
+}
+
+.khung_pro_sys_home_ten {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4em;
+    margin-top: 20px;
+    -moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    z-index: 2;
+}
+
+.khung_pro_sys_home_ten_btn {
+    text-align: center;
+}
+
+    .khung_pro_sys_home_ten_btn a {
+        color: #45c7fe;
+    }
+
+.btn-view-all {
+    background: transparent;
+    border: 1px solid #25a8e0;
+    border-radius: 0;
+    color: #45c7fe;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 10px 20px;
+}
+
+    .btn-view-all:hover {
+        border: 1px solid #25aae2;
+        background: #25aae2;
+        color: #fff;
+    }
+
+.section_gioi_thieu {
+    padding: 70px 0 47px;
+    background: #efefef url('../Image/bg.png') fixed center top;
+}
+
+.title_gioi_thieu_home {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+}
+
+.gioi_thieu_home_left {
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.gioi_thieu_home_right {
+    padding-top: 1em;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.title_nha_hang {
+    padding: 2em 0 0;
+    font-size: 23px;
+    text-align: center !important;
+}
+
+.hotel_directory {
+    background: #2f2f2f url('../Image/icon/icon_hotel_room_direct.png') no-repeat left 15px top 12px;
+    padding: 10px 0 10px 45px;
+    text-transform: uppercase;
+    font-size: 15px;
+    border: 1px solid #8f8f8f;
+    width: 250px;
+    margin: 10px 0 40px;
+}
+
+    .hotel_directory a {
+        color: #e8e8e8;
+    }
+
+.title_dich_vu {
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.section_services {
+    padding: 70px 0 26px;
+    background: #efefef url('../Image/bg.png') fixed center top;
+    height: 675px;
+}
+
+    .section_services .tab-content:hover img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+
+.nav-tabs {
+    position: relative;
+    float: left;
+    z-index: 2;
+}
+
+    .nav-tabs a {
+        padding: 40px;
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 16px;
+        line-height: 33px;
+        height: 173px;
+        width: 256px;
+        float: right;
+        position: relative;
+        display: block;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.9);
+        border: solid 1px #dbdbdb;
+        border-radius: 0;
+    }
+
+        .nav-tabs a:hover {
+            background: rgba(148, 216, 245, 0.9);
+            border: none;
+            width: 100%;
+        }
+
+    .nav-tabs .nav-link.active {
+        color: #495057;
+        background: rgba(148, 216, 245, 0.9);
+        border-color: #dee2e6 #dee2e6 #fff;
+    }
+
+    .nav-tabs a img {
+        width: 55px;
+        margin-top: 3px;
+        vertical-align: middle;
+    }
+
+.img-info {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: url('../Image/bg_header_bottom.png') repeat-x bottom;
+    padding: 15px 30px;
+    color: #fff;
+    width: 878px;
+    height: 150px;
+}
+
+.khung_cms {
+    margin-bottom: 30px;
+}
+
+.section_tin_tuc {
+    padding: 0;
+    padding-top: 40px;
+    background: #efefef url('../Image/bg.png') fixed center top;
+}
+
+    .section_tin_tuc h2 {
+        margin: 0;
+        padding: 0 0 1.5em;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .section_tin_tuc .khung_bot_cms_home {
+        padding: 10px;
+    }
+
+    .section_tin_tuc .ten_cms_home {
+        font-size: 16px;
+        display: block;
+        height: 50px;
+        line-height: 30px;
+        overflow: hidden;
+        text-transform: uppercase;
+        padding: 15px 0;
+    }
+
+    .section_tin_tuc .chuthich_cms_home {
+        text-align: justify;
+        height: 95px;
+        overflow: hidden;
+    }
+
+.img_cms img {
+    width: 100%;
+    height: 40%;
+    transition: opacity 0.5s ease-in-out;
+}
+
+    .img_cms img:hover {
+        zoom: 1;
+        filter: alpha(opacity=50);
+        opacity: 0.5;
+    }
+
+img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.ad-titles h2 {
+    font-size: 40px;
+    display: block;
+    position: absolute;
+    bottom: 2.5em;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+::-webkit-input-placeholder {
+    color: #fff !important;
+}
+
+:-moz-placeholder {
+    color: #fff !important;
+}
+
+::-moz-placeholder {
+    color: #fff !important;
+}
+
+:-ms-input-placeholder {
+    color: #fff !important;
+}
+
+.noidung_tin {
+    padding: 0 15px;
+}
+
+    .noidung_tin img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+.lined-heading {
+    position: relative;
+    text-align: center;
+    display: block;
+    margin: 40px 0;
+}
+
+h2.lined-heading span {
+}
+
+h2.lined-heading:before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 15px;
+    z-index: 1;
+    display: block;
+    width: 450px;
+    height: 1px;
+    content: "";
+    background: #bdbdbd;
+    margin: 0 auto;
+}
+
+h2.lined-heading span {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #25aae2;
+    background: #ffffff;
+    padding: 0 20px;
+}
+.noidung_page {
+    font-size: 16px !important;
+    line-height: 30px;
+    letter-spacing: 2px;
+    margin-top: 70px;
+    text-align: justify;
+}
+
+    .noidung_page img {
+        width: 100% !important;
+    }

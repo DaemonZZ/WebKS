@@ -1,0 +1,210 @@
+﻿
+@{
+    ViewBag.Title = "Room";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+    DataAccess.RoomTypeModel typeModel = ViewBag.Type;
+    List<DataProvider.Room> listRoom = ViewBag.ListRoom;
+}
+<div class="container-table100">
+    <div class="wrap-table100">
+        <div class="container mb-3">
+            @using (Html.BeginForm("Room", "Base", FormMethod.Get))
+            {
+                <div class="row">
+                    <div class="col col-lg-2 col-md-3 col-sm-4 ml-auto"><h5>Filter:</h5></div>
+                    <div class="col col-lg-3 col-md-3 col-sm-4 ml-auto">
+                        @Html.DropDownList("roomtype", ViewBag.roomtype as SelectList, "Type")
+                        @* <select id="roomtype" name="roomtype">
+                                <option value="0">Type</option>
+                                @foreach (DataProvider.RoomType type in typeModel.getAllType())
+                                {
+                                    <option value="@type.id">@type.Roomtype1</option>
+                                }
+                            </select>*@
+                    </div>
+                    <div class="col col-lg-3 col-md-3 col-sm-4 ml-auto">
+                        @Html.DropDownList("state", new List<SelectListItem>
+                   {
+                       new SelectListItem {Text="Unavailable",Value="1"},
+                       new SelectListItem {Text="Available",Value="2"}
+                   }, "State")
+                        @*<select id="state" name="state">
+                                <option value="0">State</option>
+                                <option value="2">Available</option>
+                                <option value="1">Unavailable</option>
+                            </select>
+                        *@
+                    </div>
+                    <div class="col col-lg-3 col-md-3 col-sm-4 ml-auto">
+                        <input class="btn btn-primary" type="submit" value="Filt" style="width:100px" />
+                        <button class="btn btn-success ml-1" type="button" data-toggle="modal" data-target="#addModal" style="width:130px">Add new room</button>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+        @Html.ValidationMessage("price")
+        <div class="table100 ver1">
+            <div class="table100-head">
+                <table>
+                    <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Room</th>
+                            <th class="cell100 column2">Type</th>
+                            <th class="cell100 column3">State</th>
+                            <th class="cell100 column4">Price</th>
+                            <th class="cell100 column5">Edit</th>
+                            <th class="cell100 column6">Delete</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="table100-body js-pscroll">
+                <table>
+                    <tbody>
+                        @foreach (DataProvider.Room item in ViewBag.ListRoom)
+                        {
+                            <tr class="row100 body">
+                                <td class="cell100 column1">@item.room1</td>
+                                <td class="cell100 column2">@typeModel.getByID((int)item.typeID).Roomtype1</td>
+                                <td class="cell100 column3">@(item.RoomState==1?"Available": "Unavailable")</td>
+                                <td class="cell100 column4">@item.price</td>
+                                <td class="cell100 column5">
+                                    <button class="btn-edit" type="button"
+                                            data-id="@item.id" data-price="@item.price" data-type="@item.typeID" data-room="@item.room1"
+                                            data-toggle="modal" data-target="#editModal">
+                                        <img src="/Image/icon/edit.png" width="35" />
+                                    </button>
+                                </td>
+                                <td class="cell100 column6">
+                                    <button class="btn-del" type="button" data-room="@item.room1"
+                                            data-id="@item.id" data-toggle="modal" data-target="#delModal">
+                                        <img src="/Image/icon/del.png" width="35" />
+                                    </button>
+                                </td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Edit-->
+@using (Html.BeginForm("Edit", "Room", FormMethod.Post, new { name = "modalForm", onsubmit = "return validateFormEdit()" }))
+{
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">Type</div>
+                            <div class="col-8"> @Html.DropDownList("roomtype", ViewBag.roomtype as SelectList)</div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-4">Price</div>
+                            <div class="col-8 price">@Html.TextBox("price", null, new { style = "width:239px" })</div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-12 id">@Html.TextBox("id", null, new { style = "display:none;" })</div>
+                            <div class="col-8 alert-danger" id="validateMessage"></div>
+                        </div>
+                        <div class="row">
+                            <div class="alert-danger" id="validateMessage"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<!-- Modal Delete-->
+@using (Html.BeginForm("Delete", "Room", FormMethod.Post))
+{
+    <div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 id">@Html.TextBox("id", null, new { style = "display:none;" })</div>
+                    </div>
+                    Do you want to delete this room??
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<!-- Modal Add-->
+@using (Html.BeginForm("Add", "Room", FormMethod.Post, new { name = "addmodalForm", onsubmit = "return validateFormAdd()" }))
+{
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add new room</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">Room's name</div>
+                            <div class="col-8 name">@Html.TextBox("roomname", "P", new { style = "width:239px"})</div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-4">Type</div>
+                            <div class="col-8"> @Html.DropDownList("roomtype", ViewBag.roomtype as SelectList)</div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-4">Price</div>
+                            <div class="col-8 price">@Html.TextBox("price", null, new { style = "width:239px" })</div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="alert-danger" id="validateAdd"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id="btn-add" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

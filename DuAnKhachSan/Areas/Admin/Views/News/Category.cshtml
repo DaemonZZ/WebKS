@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DataProvider.Advertisement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AdType.AdType1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gallery.img)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.summary)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdType.AdType1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gallery.img)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.priority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.summary)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

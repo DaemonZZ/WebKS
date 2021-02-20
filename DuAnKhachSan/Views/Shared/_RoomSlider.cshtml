@@ -1,0 +1,28 @@
+﻿@{
+    var adModel = (DataAccess.AdvertisementModel)ViewBag.adModel;
+}
+
+<section class="section_room" id="room-all">
+    <div class="owl-carousel owl-theme owl-loaded" id="rooms_owl" style="margin-right:0">
+
+        @foreach (DataProvider.Advertisement item in ViewBag.RoomList)
+        {
+            DataProvider.Gallery img = adModel.getImageByAdID(item.id);
+
+            <div class="owl-room" style=" background: url('/Image/Room/@img.img') center;">
+                <a class="ten_km_home" href="~/Article/ArticleDescription/@item.id"><div class="mask_link"></div></a>
+                <div class="khung_pro_sys_home_ten" style="bottom:1em !important">
+                    <div class="khung_pro_sys_home_ten_btn">
+                        <p><a class="ten_km_home" href="~/Article/ArticleDescription/@item.id">@img.caption</a></p>
+                        <a class="btn btn-default btn-view-all" data-toggle="modal" data-target="#bookPromotion">Contact Us</a>
+                    </div>
+                </div>
+                <div class="owl-room-info">
+                    <div class="owl-room-summary">
+                        @Html.Raw(item.summary)
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "ArticleCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<DataProvider.Advertisement>
+
+<h2>ArticleCategory</h2>
+@foreach(DataProvider.Advertisement item in Model)
+{
+    <h4>@item.adName</h4>
+}
