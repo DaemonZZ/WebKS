@@ -24,6 +24,10 @@ namespace DataAccess
         {
             return dbc.AdTypes.Where(i => i.id == 5 || i.id == 7 || i.id == 8).ToList();
         }
+        public AdType getById(int? id)
+        {
+            return dbc.AdTypes.Where(p => p.id == id).FirstOrDefault();
+        }
         
     }
 }

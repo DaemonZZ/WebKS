@@ -14,13 +14,7 @@
                     <div class="col col-lg-2 col-md-3 col-sm-4 ml-auto"><h5>Filter:</h5></div>
                     <div class="col col-lg-3 col-md-3 col-sm-4 ml-auto">
                         @Html.DropDownList("roomtype", ViewBag.roomtype as SelectList, "Type")
-                        @* <select id="roomtype" name="roomtype">
-                                <option value="0">Type</option>
-                                @foreach (DataProvider.RoomType type in typeModel.getAllType())
-                                {
-                                    <option value="@type.id">@type.Roomtype1</option>
-                                }
-                            </select>*@
+                        
                     </div>
                     <div class="col col-lg-3 col-md-3 col-sm-4 ml-auto">
                         @Html.DropDownList("state", new List<SelectListItem>
@@ -28,12 +22,7 @@
                        new SelectListItem {Text="Unavailable",Value="1"},
                        new SelectListItem {Text="Available",Value="2"}
                    }, "State")
-                        @*<select id="state" name="state">
-                                <option value="0">State</option>
-                                <option value="2">Available</option>
-                                <option value="1">Unavailable</option>
-                            </select>
-                        *@
+                       
                     </div>
                     <div class="col col-lg-3 col-md-3 col-sm-4 ml-auto">
                         <input class="btn btn-primary" type="submit" value="Filt" style="width:100px" />

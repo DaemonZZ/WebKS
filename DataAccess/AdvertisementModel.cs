@@ -63,5 +63,11 @@ namespace DataAccess
         {
             return dbc.Advertisements.Where(p => p.tyepId == id).ToList();
         }
+
+        public void add(Advertisement ad)
+        {
+            dbc.Advertisements.Add(ad);
+            dbc.SaveChanges();
+        }
     }
 }

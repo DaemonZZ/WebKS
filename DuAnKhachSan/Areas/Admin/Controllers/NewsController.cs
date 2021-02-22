@@ -4,6 +4,7 @@ using DataProvider;
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,13 +28,36 @@ namespace DuAnKhachSan.Areas.Admin.Controllers
             ViewBag.ListType = s;
             return View();
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult NewArticle(Advertisement ad)
+        [HttpPost, ValidateInput(false)]
+        public ActionResult NewArticle(string adName, string desc, int? typeId, string sum, string imgPath)
         {
-            return View();
+            //get image
+            AdTypeModel typemd = new AdTypeModel();
+            GalleryModel gModel = new GalleryModel();
+            string imgName = System.IO.Path.GetFileName(imgPath);
+            string type = typemd.getById(typeId).AdType1;
+            string desPath = "/Image/" + type + "/" + imgName;
+            System.IO.File.Copy(Server.MapPath("~")+imgPath, Server.MapPath("~") + desPath,true);
+            Gallery g = new Gallery();
+            g.img = imgName;
+            g.typeId = typeId;
+            g.caption = adName;
+            g.active = false;
+            int id_img =gModel.add(g);
+            // add article
+            AdvertisementModel adModel = new AdvertisementModel();
+            Advertisement ad = new Advertisement();
+            ad.img_id = id_img;
+            ad.adName = adName;
+            ad.tyepId = typeId;
+            ad.AdDescription = desc;
+            ad.summary = sum;
+            ad.priority = 1;
+            adModel.add(ad);
+
+            return RedirectToAction("Category", "News");
         }
 
-        
+
     }
 }

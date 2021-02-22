@@ -1,3 +1,4 @@
+import { type } from "jquery";
 
 (function ($) {
     "use strict";
@@ -62,33 +63,9 @@ function validateFormEdit() {
         return false;
     }
 }
-function validateFormAdd() {
-    var x = document.forms["addmodalForm"]["price"].value;
-    var y = document.forms["addmodalForm"]["roomname"].value;
-    var z = document.forms["addmodalForm"]["roomtype"].value;
-    var location = $("#validateAdd")
-    var reg1 = "^[0-9]+$"
-    var reg2 = "^P[0-9]+$"
-    if (x == "") {
-        location.append("Price must be filled out<br/>");
-        return false;
-    }
-    if (!x.match(reg1)) {
-        location.append("Numbers only<br/>");
-        return false;
-    }
-    if (y == "") {
-        location.append("Name must be filled out<br/>");
-        return false;
-    }
-    if (!y.match(reg2)) {
-        location.append("Name must start with 'P' and full of number digits after<br/>");
-        return false;
-    }
-    return true;
-}
 
-function checkname() {
+
+/*function checkname() {
     var y = document.forms["addmodalForm"]["roomname"].value;
     var x = document.forms["addmodalForm"]["price"].value;
     var z = document.forms["addmodalForm"]["roomtype"].value;
@@ -105,7 +82,7 @@ function checkname() {
     }
     
 }
-
+*/
 function AddPromotionCode() {
     var pro = document.forms["addPromotion"]["proType"].value;
     var discost = document.forms["addPromotion"]["discost"].value;
@@ -181,3 +158,30 @@ $('#delCode').on('show.bs.modal', function (event) {
     modal.find('.modal-title').text('Delete Code: ' + code)
     modal.find('.modal-body .id input').val(id)
 });
+
+function validateFormAdd() {
+    var x = document.forms["addmodalForm"]["price"].value;
+    var y = document.forms["addmodalForm"]["roomname"].value;
+    var z = document.forms["addmodalForm"]["roomtype"].value;
+    var location = $("#validateAdd")
+    var reg1 = "^[0-9]+$"
+    var reg2 = "^P[0-9]+$"
+    if (x == "") {
+        location.append("Price must be filled out<br/>");
+        return false;
+    }
+    if (!x.match(reg1)) {
+        location.append("Numbers only<br/>");
+        return false;
+    }
+    if (y == "") {
+        location.append("Name must be filled out<br/>");
+        return false;
+    }
+    if (!y.match(reg2)) {
+        location.append("Name must start with 'P' and full of number digits after<br/>");
+        return false;
+    }
+    return true;
+}
+
