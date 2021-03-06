@@ -1,0 +1,107 @@
+﻿@model DataProvider.Advertisement
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_adminLayout.cshtml";
+    SelectList listType = ViewBag.ListType;
+}
+
+@section Scripts {
+    <script src="~/Assets/Admin/ckeditor/ckeditor.js"></script>
+    <script src="~/Assets/Admin/ckfinder/ckfinder.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('editor');
+        $('#btnUpLoad').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#imgPath').val(url);
+            };
+            finder.popup();
+        })
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#submmitNewPost').click(function () {
+                var content = CKEDITOR.instances['editor'].getData();
+                $.ajax({
+                    url: '/Admin/News/NewArticle',
+                    type: 'POST',
+                    data: {
+                        adName: $('#adName').val(),
+                        typeID:$('#typeId').val(),
+                        imgPath: $('#imgPath').val(),
+                        desc: content,
+                        sum: $('#summary').val()
+                    },
+
+                    success: function (a) {
+                        alert('ok');
+                    }
+                })
+            })
+        })
+    </script>
+}
+
+@using (Html.BeginForm("NewArticle", "News", FormMethod.Post, new { name = "createForm" }))
+{
+
+    <div class="container-fluid">
+        <h4>Edit Post</h4>
+        <div class="row mt-5 ">
+            <div class="col-1">
+                <h5>Title: </h5>
+            </div>
+            <div class="col-9">
+                @Html.TextBox("adName", "", new { @class = "form-control", id = "adName" })
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-1">
+                <h5>Type:</h5>
+            </div>
+            <div class="col-3">
+                @Html.DropDownList("typeId", listType, "---Select Type---", new { @class = "form-control", id = "typeId" })
+            </div>
+            <div class="col-2 ml-1">
+                <h5>Cover Image:</h5>
+            </div>
+            <div class="col-3">
+                @Html.TextBox("imgPath", "", new { @class = "form-control", id = "imgPath" })
+            </div>
+            <div class="col-2">
+                <a class="btn btn-success" href="#" id="btnUpLoad">UpLoad</a>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="col-12"><h5>Decription:</h5></div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                @Html.TextArea("adDescription", new { id = "editor" })
+            </div>
+        </div>
+        <div class="row mt-2 ml-1">
+            <h5>Summary:</h5>
+        </div>
+        <div class="row mt-1 ml-1">
+            @Html.TextBox("summary", "", new { @class = "form-control", id = "summary" })
+        </div>
+        <div class="row mt-2 ml-2">
+            <div class="alert-danger" id="validateMessage"></div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-6">
+                <button class="btn btn-reset btn-dark" type="reset">Reset</button>
+            </div>
+            <div class="col-6">
+                <button class="btn-submit btn-primary btn" type="button" id="submmitNewPost">Submit</button>
+            </div>
+        </div>
+
+    </div>
+}
+

@@ -1,6 +1,5 @@
-$(document).ready(function () {
-    console.log("main.js ready!");
-});
+import { type } from "jquery";
+
 (function ($) {
     "use strict";
     $('.column100').on('mouseover', function () {

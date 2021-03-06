@@ -15,7 +15,7 @@ namespace DataAccess
         {
             dbc = new HotelDataContext();
         }
-        public Advertisement getByID(int id)
+        public Advertisement getByID(int? id)
         {
             return dbc.Advertisements.Where(p => p.id == id).FirstOrDefault();
         }
@@ -67,6 +67,18 @@ namespace DataAccess
         public void add(Advertisement ad)
         {
             dbc.Advertisements.Add(ad);
+            dbc.SaveChanges();
+        }
+
+        public List<Advertisement> getListAllArticle()
+        {
+            return dbc.Advertisements.Where(p => p.tyepId == 5 || p.tyepId == 7 || p.tyepId == 8).OrderByDescending(p=>p.id).ToList();
+        }
+
+        public void Delete(int? id)
+        {
+            Advertisement ad = dbc.Advertisements.Where(p => p.id == id).FirstOrDefault();
+            dbc.Advertisements.Remove(ad);
             dbc.SaveChanges();
         }
     }

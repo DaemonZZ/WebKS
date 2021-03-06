@@ -131,37 +131,43 @@
                         </ul>
                     </div>
                 </nav>
-                <div id="bookingForm">
-                    <div class="row">
-                        <div class="form-book">
-                            <div class="row">
-                                <div class="col-xl col-lg col-sm"><input class="form-control" id="timeCheckIn" type="text" value="Check in" /></div>
-                                <div class="col-xl col-lg col-sm"><input class="form-control" id="timeCheckOut" type="text" value="Check out" /></div>
-                                <div class="col-xl col-lg col-sm">
-                                    <select class="form-control">
-                                        <option value="0">Adults</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                                <div class="col-xl col-lg col-sm">
-                                    <select class="form-control ">
-                                        <option value="0">Children</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
-                                </div>
-                                <div class="col-xl col-lg col-sm"><input class="form-control" type="text" placeholder="Promotion Code" /></div>
-                                <div class="col-xl col-lg col-sm">
-                                    <button type="submit" class="btn btn-block btn-primary" name="B1" onclick="">Find</button>
+                @using (Html.BeginForm("GetInfo","Book",FormMethod.Get))
+                {
+                    <div id="bookingForm">
+                        <div class="row">
+                            <div class="form-book">
+                                <div class="row">
+                                    <div class="col-xl-2 col-lg col-sm"><input class="form-control" name="checkin" id="timeCheckIn" type="text" value="Check in" /></div>
+                                    <div class="col-xl-2 col-lg col-sm"><input class="form-control" name="checkout" id="timeCheckOut" type="text" value="Check out" /></div>
+                                    <div class="col-xl-2 col-lg col-sm">
+                                        <select class="form-control" name="adult">
+                                            <option value="0">Adults</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-2 col-lg col-sm">
+                                        <select class="form-control" name="children">
+                                            <option value="0">Children</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-2 col-lg col-sm"><input class="form-control" name="code" type="text" placeholder="Promotion Code" /></div>
+                                    <div class="col-xl-2 col-lg col-sm">
+                                        <button type="submit" class="btn btn-block btn-primary" onclick="">Find</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
-                </div>
+                }
+
             </div>
         </div>
     </div>
@@ -308,15 +314,15 @@
             {
                 DataProvider.Gallery img = ViewBag.adModel.getImageByAdID(item.id);
 
-                <div class="owl-dinning" >
+                <div class="owl-dinning">
                     <div class="dinning-img" style=" background: url('/Image/Dinning/@img.img') center;"></div>
                     <a class="ten_km_home" href="~/Article/ArticleDescription/@item.id"><div class="mask_link"></div></a>
                     <div class="khung_pro_sys_home_ten" style="bottom:1em !important">
                         <div class="khung_chu_thich_dinning">
                             <p><a class="dinning_title" href="~/Article/ArticleDescription/@item.id">@img.caption</a></p>
-                            
+
                         </div>
-                        <div class="dinning_summary"><p >@item.summary</p></div>
+                        <div class="dinning_summary"><p>@item.summary</p></div>
                     </div>
                 </div>
             }

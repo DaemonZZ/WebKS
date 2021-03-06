@@ -13,19 +13,21 @@ namespace DuAnKhachSan.Areas.Admin.Controllers
 {
     public class NewsController : BaseController
     {
+        private AdvertisementModel admd = new AdvertisementModel();
         private AdTypeModel typeModel = new AdTypeModel();
         // GET: Admin/Article
         [Authorize]
         public ActionResult Category()
         {
-            return View();
+            SetViewBag();
+            List<Advertisement> model = admd.getListAllArticle();
+            return View(model);
         }
         [HttpGet]
         public ActionResult NewArticle()
         {
-            List<AdType> listType = typeModel.listForAdd();
-            SelectList s = new SelectList(listType, "id", "AdType1");
-            ViewBag.ListType = s;
+            SetViewBag();
+
             return View();
         }
         [HttpPost, ValidateInput(false)]
@@ -37,13 +39,13 @@ namespace DuAnKhachSan.Areas.Admin.Controllers
             string imgName = System.IO.Path.GetFileName(imgPath);
             string type = typemd.getById(typeId).AdType1;
             string desPath = "/Image/" + type + "/" + imgName;
-            System.IO.File.Copy(Server.MapPath("~")+imgPath, Server.MapPath("~") + desPath,true);
+            System.IO.File.Copy(Server.MapPath("~") + imgPath, Server.MapPath("~") + desPath, true);
             Gallery g = new Gallery();
             g.img = imgName;
             g.typeId = typeId;
             g.caption = adName;
             g.active = false;
-            int id_img =gModel.add(g);
+            int id_img = gModel.add(g);
             // add article
             AdvertisementModel adModel = new AdvertisementModel();
             Advertisement ad = new Advertisement();
@@ -58,6 +60,27 @@ namespace DuAnKhachSan.Areas.Admin.Controllers
             return RedirectToAction("Category", "News");
         }
 
+        public void SetViewBag()
+        {
+            List<AdType> listType = typeModel.listForAdd();
+            SelectList s = new SelectList(listType, "id", "AdType1");
+            ViewBag.ListType = s;
 
+
+        }
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            admd.Delete(id);
+            return RedirectToAction("Category", "News");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            SetViewBag();
+
+            return View();
+        }
     }
 }

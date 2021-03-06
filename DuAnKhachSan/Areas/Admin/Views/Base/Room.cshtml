@@ -14,7 +14,7 @@
                     <div class="col col-lg-2 col-md-3 col-sm-4 ml-auto"><h5>Filter:</h5></div>
                     <div class="col col-lg-3 col-md-3 col-sm-4 ml-auto">
                         @Html.DropDownList("roomtype", ViewBag.roomtype as SelectList, "Type")
-                        
+
                     </div>
                     <div class="col col-lg-3 col-md-3 col-sm-4 ml-auto">
                         @Html.DropDownList("state", new List<SelectListItem>
@@ -22,7 +22,7 @@
                        new SelectListItem {Text="Unavailable",Value="1"},
                        new SelectListItem {Text="Available",Value="2"}
                    }, "State")
-                       
+
                     </div>
                     <div class="col col-lg-3 col-md-3 col-sm-4 ml-auto">
                         <input class="btn btn-primary" type="submit" value="Filt" style="width:100px" />
@@ -170,7 +170,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-4">Room's name</div>
-                            <div class="col-8 name">@Html.TextBox("roomname", "P", new { style = "width:239px"})</div>
+                            <div class="col-8 name">@Html.TextBox("roomname", "P", new { style = "width:239px" })</div>
                         </div>
                         <br />
                         <div class="row">
