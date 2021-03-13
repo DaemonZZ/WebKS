@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/datepicker.css" />
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
+    <link href="~/Content/payment.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="header">
+                <img class="header-banner" src="~/Image/payment.jpg" alt="banner"/>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/payment.js"></script>
+</body>
+</html>

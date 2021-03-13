@@ -22,14 +22,16 @@ namespace DataProvider
 
         public int? bookedRoom { get; set; }
 
-        public int? number_of_night { get; set; }
+        public DateTime bookingDate { get; set; }
 
-        public DateTime? checkin { get; set; }
+        public DateTime checkin { get; set; }
 
-        public DateTime? checkout { get; set; }
+        public DateTime checkout { get; set; }
 
         [StringLength(50)]
         public string promotion_code { get; set; }
+
+        public int? status { get; set; }
 
         public virtual Customer Customer { get; set; }
 

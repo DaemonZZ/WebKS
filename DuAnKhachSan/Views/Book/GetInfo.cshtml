@@ -1,0 +1,24 @@
+﻿@model List<DataProvider.Room>
+@{
+    ViewBag.Title = "GetInfo";
+    Layout = "~/Views/Shared/_PaymentPage.cshtml";
+    SelectList listType = ViewBag.ListType;
+}
+
+<div class="container">
+    <h3>Thankyou for choosing my services</h3>
+    <br />
+    <h3>Choose Your Room</h3>
+    @using (Html.BeginForm("Cash", "Book", FormMethod.Post))
+    {
+    <div class="khungchonphong mt-3">
+        <div class="pl-5 row">
+            <div class="col-3"><h5>Room Type:</h5></div>
+            <div class="col-3">
+                @Html.DropDownList("typeId", listType, "---Select Type---", new { @class = "form-control", id = "typeId", onchange="selectType()" })
+            </div>
+        </div>
+
+    </div>
+    }
+</div>

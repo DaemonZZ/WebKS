@@ -18,7 +18,7 @@ namespace DataAccess
             dbc = new HotelDataContext();
         }
 
-        public List<Room> getListRoom(int? typeroom, int? state)
+        public List<Room> getListRoom(int? typeroom=null, int? state=null)
         {
             List<Room> list = dbc.Rooms.OrderBy(p => p.room1).ToList();
             if (typeroom == null && state == null)

@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="AdTypeModel.cs" />
     <Compile Include="AdvertisementModel.cs" />
+    <Compile Include="BookingModel.cs" />
     <Compile Include="GalleryModel.cs" />
     <Compile Include="GalleryTypeModel.cs" />
     <Compile Include="HotelDataIO.cs" />

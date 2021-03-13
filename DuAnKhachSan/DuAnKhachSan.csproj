@@ -1553,6 +1553,7 @@
     <Content Include="Content\owl.theme.default.min.css" />
     <Content Include="Content\owl.theme.green.css" />
     <Content Include="Content\owl.theme.green.min.css" />
+    <Content Include="Content\payment.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -1621,6 +1622,7 @@
     <Content Include="Image\News\da-nang-la-diem-den-an-toan-07.jpg" />
     <Content Include="Image\News\du-lich-Da-nang.jpg" />
     <Content Include="Image\News\Light Plus.jpg" />
+    <Content Include="Image\payment.jpg" />
     <Content Include="Image\Promotions\km_1_105.jpg" />
     <Content Include="Image\Promotions\km_slide_1_101.jpg" />
     <Content Include="Image\Promotions\km_slide_1_105.jpg" />
@@ -1767,6 +1769,7 @@
     <Content Include="Scripts\nicEdit.js" />
     <Content Include="Scripts\owl.carousel.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\payment.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -1866,13 +1869,14 @@
     <Content Include="Views\Article\ArticleCategory.cshtml" />
     <Content Include="Views\Shared\_RoomSlider.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Book\GetInfo.cshtml" />
+    <Content Include="Views\Shared\_PaymentPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Room\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Book\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

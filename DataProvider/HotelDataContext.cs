@@ -11,7 +11,7 @@ namespace DataProvider
             : base("name=HotelDataContext")
         {
         }
-        
+
         public virtual DbSet<AdType> AdTypes { get; set; }
         public virtual DbSet<Advertisement> Advertisements { get; set; }
         public virtual DbSet<Booking> Bookings { get; set; }
@@ -25,6 +25,7 @@ namespace DataProvider
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<RoomType> RoomTypes { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

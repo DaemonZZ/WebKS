@@ -68,6 +68,7 @@
     <Compile Include="Role.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="RoomType.cs" />
+    <Compile Include="sysdiagram.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

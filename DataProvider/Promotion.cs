@@ -15,6 +15,7 @@ namespace DataProvider
         public string code { get; set; }
 
         public int? typeID { get; set; }
+
         public int? State { get; set; }
 
         public DateTime? use_date { get; set; }
