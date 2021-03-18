@@ -43,18 +43,23 @@ namespace DuAnKhachSan.Controllers
                 return null;
             }
         }
-
+        //index: thu tu khung phong
         public JsonResult Select(int id)
         {
             List<Room> l = rmd.getListByType(id);
             int roomRemain = l.Where(p => p.RoomState > 0).Count();
+            Advertisement desc = new AdvertisementModel().getByID(id + 9);
+            Gallery img = new GalleryModel().getImageByID((int)desc.img_id);
+
             return Json(new
             {
-                link = "/Article/ArticleDescription/"+(id+9),
-                count = roomRemain
+                imglink = "/Image/Room/" + img.img,
+                link = "/Article/ArticleDescription/" + (id + 9),
+                count = roomRemain,
+                summ = desc.summary
             });
         }
     }
-
+    
     
 }

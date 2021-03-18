@@ -26,7 +26,9 @@ namespace DataAccess
 
         public Advertisement getIntroArticle()
         {
+            
             return dbc.Advertisements.Where(p => p.tyepId == 1).FirstOrDefault();
+
         }
         public List<Advertisement> getListActivePromotion()
         {

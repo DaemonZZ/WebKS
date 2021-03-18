@@ -4,3 +4,38 @@
 .header-banner{
     width:100%;
 }
+.khungchonphong {
+    border:solid;
+    border-block-color:black;
+    padding: 15px;
+    font-size:80%;
+}
+    .khungchonphong select {
+        font-size: 100%;
+    }
+.thongtinphong{
+    display:none;
+}
+.anhphong img{
+    border:solid 2px;
+    border-color:greenyellow;
+}
+.total {
+   
+    margin-right:auto;    
+    font-size:130%;
+}
+.submit-btn {
+   
+    margin-right: auto;
+    
+}
+.submit-btn input{
+    margin-left:10px;
+}
+.giaphong{
+    padding-left:60px;
+}
+#add_ele{
+    display:none;
+}
