@@ -26,6 +26,8 @@ namespace DuAnKhachSan.Controllers
             List<RoomType> listType = rtmd.getAllType();
             SelectList s = new SelectList(listType, "id", "Roomtype1");
             ViewBag.ListType = s;
+            int songay = (checkout - checkin).Days;
+            ViewBag.SoNgay = songay;
             foreach (Room item in rmd.getListRoom())
             {
                 if (bkModel.CheckRoom(item, checkin, checkout))
@@ -50,14 +52,20 @@ namespace DuAnKhachSan.Controllers
             int roomRemain = l.Where(p => p.RoomState > 0).Count();
             Advertisement desc = new AdvertisementModel().getByID(id + 9);
             Gallery img = new GalleryModel().getImageByID((int)desc.img_id);
-
+            double? price = l.FirstOrDefault().price;
             return Json(new
             {
                 imglink = "/Image/Room/" + img.img,
                 link = "/Article/ArticleDescription/" + (id + 9),
                 count = roomRemain,
-                summ = desc.summary
-            });
+                summ = desc.summary,
+                price = price
+            }) ;
+        }
+
+        public ActionResult Pay()
+        {
+            return View();
         }
     }
     

@@ -7,10 +7,14 @@
 <!--Khung chon phong-->
 <div id="add_ele">
     <div class="khungchonphong mt-3 mr-5">
-        <div class="pl-5 row" id="select">
-            <div class="col-3" style="display:block ruby">
+        <div class="pl-5 row select" id="select">
+            <div class="col-3 drop" style="display:block ruby">
                 <b>Room Type:</b>
-                @Html.DropDownList("typeId", listType, "---Select Type---", new { @class = "form-control", id = "typeId", onchange = "selectType(this)" })
+                @Html.DropDownList("0", listType, "---Select Type---", new { @class = "form-control", id = "typeId", onchange = "selectType(this)" })
+            </div>
+
+            <div class="col col_close">
+                <div class="close_icon float-right"><img src="~/Image/icon/close.jpg" width="20" onclick="remove(this)" data-id="0" /></div>
             </div>
         </div>
         <div id="khung" class="khung"></div>
@@ -21,18 +25,20 @@
 <div id="info" class="thongtinphong">
     <div class="row pl-4">
         <div class="col-4 anhphong">
-            <a href="#">
+            <a href="#" target="_blank">
                 <img src="" style="width:94%" class="mt-3" />
             </a>
         </div>
         <div class="col-4 motaphong">
 
         </div>
-        <div class="col-4 giaphong">
+        <div class="col-4">
             <b>Price:</b>
-            <div id="giaphong">abc</div>
-            <b>Amount:</b>
-            <div class="amount">abc</div>
+            <div class="giaphong"></div>
+            <b>Amount of rooms:</b>
+            <div class="amount">
+                <input class="amo" type="number" min="0" data-id="0" onchange="changeAmount()"/>
+            </div>
         </div>
     </div>
 </div>
@@ -43,15 +49,33 @@
     <h3>Choose Your Room</h3>
     @using (Html.BeginForm("Cash", "Book", FormMethod.Post, new { @id = "form" }))
     {
-
+        <div id="form_body"></div>
 
         <div class="row total">
-            <b>Total: </b>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3">
+                <b>Nights: </b>
+                <span id="nights">@ViewBag.SoNgay</span>
+            </div>
+            <div class="col-3">
+                <b>Total: </b>
+                <span id="total"></span>
+            </div>
+            
+
         </div>
-        
+
         <div class="submit-btn row">
-            <input class="btn btn-success" type="button" value="Add Room" onclick="Add()" />
-            <input class="btn btn-primary" type="button" value="Purchase" />
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-1"></div>
+            <div class="col-2">
+                <input class="btn btn-success" type="button" value="Add Room" onclick="Add()" />
+                <input class="btn btn-primary" type="button" value="Purchase" />
+            </div>
+            
         </div>
     }
 

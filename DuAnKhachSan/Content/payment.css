@@ -1,8 +1,15 @@
 ﻿body {
-    background:url(../Image/bg.png)
+    background:url(../Image/bg.png);
 }
 .header-banner{
     width:100%;
+}
+.section_footer {
+    background: #37383C url('../Image/bg_footer.jpg') center top;
+    background-size: auto;
+    background-size: 100%;
+    padding: 4em 0 4em 0;
+    margin-top:40px;
 }
 .khungchonphong {
     border:solid;
@@ -19,9 +26,13 @@
 .anhphong img{
     border:solid 2px;
     border-color:greenyellow;
+} 
+.drop{
 }
 .total {
-   
+    
+    margin-top:20px;
+    margin-bottom:20px;
     margin-right:auto;    
     font-size:130%;
 }
@@ -33,9 +44,18 @@
 .submit-btn input{
     margin-left:10px;
 }
-.giaphong{
-    padding-left:60px;
-}
+
 #add_ele{
     display:none;
+}
+.close_icon {
+    margin-right: 20px;
+    margin-top: 10px;
+    
+}
+.col_close {
+    margin-left: 70px;
+}
+.close_icon img {
+    position: absolute;
 }

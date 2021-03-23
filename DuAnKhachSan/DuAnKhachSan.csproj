@@ -830,21 +830,7 @@
     <Content Include="Assets\Admin\ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="Assets\Admin\ckeditor\styles.js" />
     <Content Include="Assets\Admin\ckeditor\vendor\promise.js" />
-    <Content Include="Assets\Admin\ckfinder\bin\Debug\CKFinder.dll" />
-    <Content Include="Assets\Admin\ckfinder\bin\Debug\CKFinder.pdb" />
-    <Content Include="Assets\Admin\ckfinder\bin\Debug\CKFinder_FileEditor.dll" />
-    <Content Include="Assets\Admin\ckfinder\bin\Debug\CKFinder_FileEditor.pdb" />
-    <Content Include="Assets\Admin\ckfinder\bin\Debug\CKFinder_ImageResize.dll" />
-    <Content Include="Assets\Admin\ckfinder\bin\Debug\CKFinder_ImageResize.pdb" />
-    <Content Include="Assets\Admin\ckfinder\bin\Debug\CKFinder_Watermark.dll" />
-    <Content Include="Assets\Admin\ckfinder\bin\Debug\CKFinder_Watermark.pdb" />
-    <Content Include="Assets\Admin\ckfinder\bin\Release\CKFinder.dll" />
-    <Content Include="Assets\Admin\ckfinder\bin\Release\CKFinder_FileEditor.dll" />
-    <Content Include="Assets\Admin\ckfinder\bin\Release\CKFinder_FileEditor.pdb" />
-    <Content Include="Assets\Admin\ckfinder\bin\Release\CKFinder_ImageResize.dll" />
-    <Content Include="Assets\Admin\ckfinder\bin\Release\CKFinder_ImageResize.pdb" />
-    <Content Include="Assets\Admin\ckfinder\bin\Release\CKFinder_Watermark.dll" />
-    <Content Include="Assets\Admin\ckfinder\bin\Release\CKFinder_Watermark.pdb" />
+   
     <Content Include="Assets\Admin\ckfinder\changelog.txt" />
     <Content Include="Assets\Admin\ckfinder\ckfinder.html" />
     <Content Include="Assets\Admin\ckfinder\ckfinder.js" />
@@ -1751,7 +1737,7 @@
     <Content Include="fonts\[cnttqn.net] UTM AvoBold.ttf" />
     <Content Include="fonts\[cnttqn.net] UTM AvoBold_Italic.ttf" />
     <Content Include="fonts\[cnttqn.net] UTM AvoItalic.ttf" />
-    <Content Include="Image\bg-black-middle.psb" />
+    
     <Content Include="NLog.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
@@ -1880,6 +1866,7 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Book\GetInfo.cshtml" />
     <Content Include="Views\Shared\_PaymentPage.cshtml" />
+    <Content Include="Views\Book\Pay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

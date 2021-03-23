@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Pay";
+    Layout = "~/Views/Shared/_PaymentPage.cshtml";
+}
+
+<h2>Pay</h2>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AfBZVDQj01pkKy35s6jB5y7baIth8b4Y-gARrz0CuE9Vsa-kvnHVXjo2HB-Dl35cpzNxMUkzsHl1DsiZ">
+</script>
+
+<div id="paypal-button-container"></div>
+
+
+
+<script>
+    paypal.Buttons({
+        createOrder: function (data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '0.01'
+                    }
+                }]
+            });
+        }
+    }).render('#paypal-button-container');
+</script>

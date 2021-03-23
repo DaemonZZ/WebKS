@@ -19,18 +19,358 @@
     <div class="container-fluid">
         <div class="row">
             <div class="header">
-                <img class="header-banner" src="~/Image/payment.jpg" alt="banner"/>
+                <img class="header-banner" src="~/Image/payment.jpg" alt="banner" />
             </div>
         </div>
     </div>
 
     @RenderBody()
 
+    <section class="section_footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 footer_left">
+                    <div class="hotel_directory"><a href="#">Hotel directory</a></div>
+                    <div style="color:#fff">
+                        <div>
+                            Just a few steps from the island and a short drive from the airport, right on the beach of Da Nang. You can not miss us!<br />
+                            <br />
+                            <a href="https://www.tripadvisor.com/" target="_blank">
+                                <img alt="" src="~/Image/icon/CON 1(1).png" style="width: 32px; height: 24px;" />
+                            </a>
+                            <a href="https://www.facebook.com/sgooophx/" target="_blank">
+                                <img alt="" src="~/Image/icon/CON 2(1).png" style="width: 33px; height: 24px;" />
+                            </a>
+                            <a href="https://www.instagram.com/sgooophx/" target="_blank">
+                                <img alt="" src="~/Image/icon/CON 3(1).png" style="width: 41px; height: 24px;" />
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCC6uRPki8uWQyZuJY4Ea29Q" target="_blank">
+                                <img alt="" src="~/Image/icon/CON 5(1).png" style="width: 29px; height: 24px;" />
+                            </a>
+                            <br />
+                            <br />
+                            <span style="color:#c9c9c9;">A: 123 Nam Ki Khoi Nghia, Ngu hanh Son District, Da Nang City, Viet Nam</span>
+                        </div>
+
+                        <div><span style="color:#c9c9c9;">T: +84 (0) 236 2343 555</span></div>
+
+                        <div>
+                            <span style="color:#c9c9c9;">E:&nbsp;</span><a href="mailto:ohmygod@fu.com"><span style="color:#c9c9c9;">ohmygod@fu.com</span></a><br />
+                            <span style="color:#c9c9c9;">Fax: +84 (0) 236 3669 555</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="footer_2_trip" style="float:left; width:248px">
+                        <span></span>
+                    </div>
+                    <div class="footer_2_map">
+                        <div class="map_home" id="div_id"></div>
+                    </div>
+                </div>
+                <div class="col-lg-12 copyright">
+                    Copyright © 2021 Back-end Projest Asp.Net MVC.   |   Designed by Thanwgs
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script src="~/Scripts/jquery-3.5.1.min.js"></script>
     <script src="~/Scripts/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
     <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=test"></script>
     <script src="~/Scripts/payment.js"></script>
+    <script>paypal.Buttons().render('body');</script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AfBZVDQj01pkKy35s6jB5y7baIth8b4Y-gARrz0CuE9Vsa-kvnHVXjo2HB-Dl35cpzNxMUkzsHl1DsiZ">
+ 
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0yjvlDau8fdxqdd5S6DAy1Efz-eGWPWs&amp;callback=initialize" async="" defer="defer" type="text/javascript"></script>
+    <script type="text/javascript">
+        var map;
+        function initialize() {
+            var myLatlng = new google.maps.LatLng(15.973323117244899, 108.25230177120193);
+            var myOptions = {
+                zoom: 15,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: [
+                    {
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#F4F4F4"
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#523735"
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "color": "#efefef"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#c9b2a6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative.land_parcel",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#dcd2be"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative.land_parcel",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative.land_parcel",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#ae9e90"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape.natural",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#f6edbc"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#f6edbc"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#93817c"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.park",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#99c682"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.park",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#447530"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#e2e2e2"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#fdfcf8"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#f8c967"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#e9bc62"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway.controlled_access",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#e98d58"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway.controlled_access",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#db8555"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.local",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.local",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#767676"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.line",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#d5d5d5"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.line",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#838383"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.line",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "color": "#cacaca"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.station",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#dcdcdc"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#93ccdc"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#92998d"
+                            }
+                        ]
+                    }
+                ]
+            }
+            map = new google.maps.Map(document.getElementById("div_id"), myOptions);
+            var text;
+            text = "<div style='color:#000; text-align:center'><b>Hello Hotel</b><br/>VKU street</div>";
+            var infowindow = new google.maps.InfoWindow(
+                {
+                    content: text,
+                    size: new google.maps.Size(100, 50),
+                    position: myLatlng
+                });
+            infowindow.open(map);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: "Hotel Example"
+            });
+        }
+        $(document).ready(function () {
+            initialize();
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140017516-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-140017516-1');
+
+        function menuDropClick(id) {
+            var url = @Url.Action("ArticleCagotery", "Article", new { id = "id" });
+            window.location.href = url.replace('id', id);
+        }
+    </script>
 </body>
 </html>
