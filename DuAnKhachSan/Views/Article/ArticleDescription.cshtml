@@ -8,11 +8,63 @@
 
 <div class="container">
     <div class="row" id="noidung" style="display:initial;">
-        @Html.Raw(@Model.AdDescription.ToString());
+        @Html.Raw(@Model.AdDescription.ToString())
     </div>
 </div>
-    @if (Model.tyepId == 2)
-    {
+@if (Model.tyepId == 2)
+{
+    <br />
+    Html.RenderAction("_RoomSlider", "Article");
+}
+
+
+<h2 style="margin-left:260px; margin-bottom:50px;">Bình Luận</h2>
+
+@foreach (DataProvider.Comment item in ViewBag.ListCm)
+{
+    <div class="container khungcomment">
+        <h5 style="text-decoration:underline;">@item.name</h5>
+        <div class="comment">
+            @item.noidung
+        </div>
+    </div>
+
+}
+<hr />
+
+
+@using (Html.BeginForm("Comment", "Article", FormMethod.Post))
+{
+    <div class="container mb-5">
+        <h5>Để lại bình luận</h5>
+        <div class="row">
+            <div class="col-3">
+                <h5>Tên</h5>
+                @Html.TextBox("ten", "", new { @class = "form-control" })
+            </div>
+        </div>
         <br />
-         Html.RenderAction("_RoomSlider", "Article"); 
-    }
+        <div class="row">
+            <div class="col-3">
+                <h5>Email</h5>
+                @Html.TextBox("mail", "", new { @class = "form-control" })
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-6">
+                @Html.TextArea("noidung", "", new { @class = "form-control" })
+            </div>
+        </div>
+        <div>
+            @Html.TextBox("adId", Model.id, new { @class = "form-control", style = "display:none" })
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-6">
+                <input type="submit" class="btn btn-primary float-right" value="Send" />
+            </div>
+        </div>
+    </div>
+
+}

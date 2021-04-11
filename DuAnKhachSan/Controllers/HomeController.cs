@@ -37,6 +37,10 @@ namespace DuAnKhachSan.Controllers
             List<Advertisement> listRoom = adModel.getListActiveRoomAd();
             ViewBag.RoomList = listRoom;
             //Facilities
+
+            List<Advertisement> listNews = adModel.getListNews();
+            ViewBag.NewsList = listNews;
+
             ViewBag.Spa = adModel.getByID(25);
             ViewBag.Pool = adModel.getByID(22);
             ViewBag.Fitness = adModel.getByID(23);

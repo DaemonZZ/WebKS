@@ -501,6 +501,7 @@ option {
 .section_tin_tuc {
     padding: 0;
     padding-top: 40px;
+    margin-top:40px;
     background: #efefef url('../Image/bg.png') fixed center top;
 }
 
@@ -630,3 +631,12 @@ h2.lined-heading span {
     .noidung_page img {
         width: 100% !important;
     }
+
+.khungcomment {
+    border: 2px solid #958e8e4f !important;
+    margin-bottom:20px;
+}
+.comment{
+    margin-left:50px;
+    margin-top:10px;
+}

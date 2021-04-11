@@ -20,6 +20,8 @@ namespace DuAnKhachSan.Controllers
         public ActionResult ArticleDescription(int id)
         {
             Advertisement model = new AdvertisementModel().getByID(id);
+            CommentModel cmmd = new CommentModel();
+            ViewBag.ListCm = cmmd.getListComment(id);
 
             return View(model);
         }
@@ -38,6 +40,20 @@ namespace DuAnKhachSan.Controllers
             ViewBag.RoomList = model;
 
             return PartialView("_RoomSlider");
+        }
+        [HttpPost]
+        public ActionResult Comment(string ten, string mail, string noidung, int adId) 
+        {
+            CommentModel cmmd = new CommentModel();
+            Comment c = new Comment();
+            c.name = ten;
+            c.email = mail;
+            c.noidung = noidung;
+            c.adId = adId;
+
+            bool rs = cmmd.AddComment(c);
+
+            return Redirect("ArticleDescription/"+(c.adId).ToString());
         }
     }
 }

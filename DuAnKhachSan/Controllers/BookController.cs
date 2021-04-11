@@ -29,7 +29,7 @@ namespace DuAnKhachSan.Controllers
             int songay = (checkout - checkin).Days;
             ViewBag.SoNgay = songay;
             foreach (Room item in rmd.getListRoom())
-            {
+             {
                 if (bkModel.CheckRoom(item, checkin, checkout))
                 {
                     model.Add(item);

@@ -15,6 +15,7 @@ namespace DataProvider
         public virtual DbSet<AdType> AdTypes { get; set; }
         public virtual DbSet<Advertisement> Advertisements { get; set; }
         public virtual DbSet<Booking> Bookings { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<CustomerType> CustomerTypes { get; set; }
         public virtual DbSet<Gallery> Galleries { get; set; }
@@ -34,6 +35,11 @@ namespace DataProvider
                 .HasMany(e => e.Advertisements)
                 .WithOptional(e => e.AdType)
                 .HasForeignKey(e => e.tyepId);
+
+            modelBuilder.Entity<Advertisement>()
+                .HasMany(e => e.Comments)
+                .WithOptional(e => e.Advertisement)
+                .HasForeignKey(e => e.adId);
 
             modelBuilder.Entity<Booking>()
                 .Property(e => e.customerID)

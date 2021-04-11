@@ -48,7 +48,7 @@ namespace DataAccess
         }
         public List<Advertisement> getListNews()
         {
-            return dbc.Advertisements.Where(p => p.img_id == 6).ToList();
+            return dbc.Advertisements.Where(p => p.tyepId == 5).ToList();
         }
         public List<Advertisement> getListDestionations()
         {

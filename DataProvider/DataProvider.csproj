@@ -56,6 +56,7 @@
     <Compile Include="AdType.cs" />
     <Compile Include="Advertisement.cs" />
     <Compile Include="Booking.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerType.cs" />
     <Compile Include="Gallery.cs" />

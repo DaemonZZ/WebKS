@@ -131,7 +131,7 @@
                         </ul>
                     </div>
                 </nav>
-                @using (Html.BeginForm("GetInfo","Book",FormMethod.Post))
+                @using (Html.BeginForm("GetInfo", "Book", FormMethod.Post))
                 {
                     <div id="bookingForm">
                         <div class="row">
@@ -399,37 +399,21 @@
     <!--Tin Tuc-->
     <section class="section_tin_tuc">
         <div class="container">
-
             <div class="row">
-                <div class="khung_cms col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="img_cms"><a href="#"><img src="~/Image/News/Light Plus.jpg" class="img-responsive" /></a></div>
-                    <div class="khung_bot_cms_home">
-                        <div class="ten_cms_home"><a href="https://alacartedanangbeach.com/vn/news-view-top-9-best-beachfront-hotels-in-danang/">TOP 9 Best Beachfront Hotels in Danang</a></div>
-                        <div class="chuthich_cms_home"><p>A La Carte Da Nang Beach Hotel lọt TOP 9 Best Beachfront Hotels in Danang, Vietnam</p></div>
+                @foreach (DataProvider.Advertisement item in ViewBag.NewsList)
+                {
+                    DataProvider.Gallery img = ViewBag.adModel.getImageByAdID(item.id);
+                    <div class="khung_cms col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="img_cms"><a href="~/Article/ArticleDescription/@item.id"><img src="~/Image/News/@img.img" class="img-responsive" /></a></div>
+                        <div class="khung_bot_cms_home">
+                            <div class="ten_cms_home"><a href="~/Article/ArticleDescription/@item.id">@item.adName</a></div>
+                            <div class="chuthich_cms_home"><p>@item.summary</p></div>
+                        </div>
                     </div>
-                </div>
-                <div class="khung_cms col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="img_cms"><a href="https://alacartedanangbeach.com/vn/news-view-chao-mung-ky-niem-15-nam-thanh-lap-tap-doan-taseco/"><img src="~/Image/News/alacarte.jpg" class="img-responsive" /></a></div>
-                    <div class="khung_bot_cms_home">
-                        <div class="ten_cms_home"><a href="https://alacartedanangbeach.com/vn/news-view-chao-mung-ky-niem-15-nam-thanh-lap-tap-doan-taseco/">Chào mừng Kỷ niệm 15 năm thành lập tập đoàn TASECO</a></div>
-                        <div class="chuthich_cms_home"><p>15 năm của một đời người mới chỉ l&agrave; bước khởi đầu, nhưng 15 năm của một Doanh nghiệp l&agrave; cả một chặng đường d&agrave;i với v&ocirc; v&agrave;n đổi thay,</p></div>
-                    </div>
-                </div>
-                <div class="khung_cms col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="img_cms"><a href="https://alacartedanangbeach.com/vn/news-view-cung-a-la-carte-da-nang-chung-tay-day-lui-dai-dich-covid-19/"><img src="~/Image/News/da-nang-la-diem-den-an-toan-07.jpg" class="img-responsive" /></a></div>
-                    <div class="khung_bot_cms_home">
-                        <div class="ten_cms_home"><a href="https://alacartedanangbeach.com/vn/news-view-cung-a-la-carte-da-nang-chung-tay-day-lui-dai-dich-covid-19/">Cùng À La Carte Đà Nẵng chung tay đẩy lùi đại dịch Covid-19</a></div>
-                        <div class="chuthich_cms_home"><p>Hơn 2 th&aacute;ng ho&agrave;nh h&agrave;nh tr&ecirc;n thế giới, Covid-19 dường như đ&atilde; trở th&agrave;nh mối lo ngại mang t&iacute;nh b&aacute;o động to&agrave;n cầu. H&atilde;y c&ugrave;ng &Agrave; La Carte g&oacute;p phần c&ugrave;ng cả nước chung tay đẩy l&ugrave;i dịch bệnh.</p></div>
-                    </div>
-                </div>
-                <div class="khung_cms col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="img_cms"><a href="https://alacartedanangbeach.com/vn/news-view-da-nang-la-diem-den-an-toan-cho-du-khach!/"><img src="~/Image/News/du-lich-Da-nang.jpg" class="img-responsive" /></a></div>
-                    <div class="khung_bot_cms_home">
-                        <div class="ten_cms_home"><a href="https://alacartedanangbeach.com/vn/news-view-da-nang-la-diem-den-an-toan-cho-du-khach!/">Đà Nẵng là điểm đến an toàn cho Du khách!</a></div>
-                        <div class="chuthich_cms_home"><p>Dịch phi&ecirc;m phổi cấp vừa qua đ&atilde; g&acirc;y ra đ&atilde; g&acirc;y ra nhiều ảnh hưởng tới cho ng&agrave;nh du lịch. Đ&agrave; Nẵng vẫn tự h&agrave;o l&agrave; một trong những địa phương đ&atilde; v&agrave; đang l&agrave;m tốt c&ocirc;ng t&aacute;c ph&ograve;ng dịch cũng như quảng b&aacute; du lịch trong cuộc chiến chống dịch Covid-19.</p></div>
-                    </div>
-                </div>
+
+                }
             </div>
+
         </div>
     </section>
     <!--Footer-->

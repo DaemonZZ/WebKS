@@ -9,6 +9,12 @@ namespace DataProvider
     [Table("Advertisement")]
     public partial class Advertisement
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Advertisement()
+        {
+            Comments = new HashSet<Comment>();
+        }
+
         public int id { get; set; }
 
         [StringLength(255)]
@@ -29,5 +35,8 @@ namespace DataProvider
         public virtual AdType AdType { get; set; }
 
         public virtual Gallery Gallery { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

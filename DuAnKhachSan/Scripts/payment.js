@@ -50,7 +50,9 @@ function Add() {
 
 function remove(obj) {
     var id = $(obj).data('id');
-    alert(id);
+
+    $(obj).parent().parent().parent().parent().remove();
+    cal();
 }
 
 function changeAmount() {
