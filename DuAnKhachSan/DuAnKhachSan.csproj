@@ -316,6 +316,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Info.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -830,7 +831,6 @@
     <Content Include="Assets\Admin\ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="Assets\Admin\ckeditor\styles.js" />
     <Content Include="Assets\Admin\ckeditor\vendor\promise.js" />
-   
     <Content Include="Assets\Admin\ckfinder\changelog.txt" />
     <Content Include="Assets\Admin\ckfinder\ckfinder.html" />
     <Content Include="Assets\Admin\ckfinder\ckfinder.js" />
@@ -1529,6 +1529,7 @@
     <Content Include="Assets\Admin\js\translations\vi.js" />
     <Content Include="Assets\Admin\js\translations\zh-cn.js" />
     <Content Include="Assets\Admin\js\translations\zh.js" />
+    <Content Include="Content\bill.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -1737,7 +1738,6 @@
     <Content Include="fonts\[cnttqn.net] UTM AvoBold.ttf" />
     <Content Include="fonts\[cnttqn.net] UTM AvoBold_Italic.ttf" />
     <Content Include="fonts\[cnttqn.net] UTM AvoItalic.ttf" />
-    
     <Content Include="NLog.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
@@ -1867,6 +1867,8 @@
     <Content Include="Views\Book\GetInfo.cshtml" />
     <Content Include="Views\Shared\_PaymentPage.cshtml" />
     <Content Include="Views\Book\Pay.cshtml" />
+    <Content Include="Views\Book\Error.cshtml" />
+    <Content Include="Views\Book\getCusInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

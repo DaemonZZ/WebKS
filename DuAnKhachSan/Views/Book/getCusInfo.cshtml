@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "getCusInfo";
+    Layout = "~/Views/Shared/_PaymentPage.cshtml";
+}
+
+<div class="container">
+    <div class="row"><h2>Complete your information</h2></div>
+    <div class="row">
+        @using(Html.BeginForm("NewCustomer", "Book",FormMethod.Post,new {style="width:100%" }))
+        {
+        <div class="col-4">
+            <b>First name:</b>
+            <span>
+                @Html.TextBox("first", "", new { @class = "form-control" })
+            </span>
+            <br />
+            <b>Last name:</b>
+            <span>
+                @Html.TextBox("last", "", new { @class = "form-control" })
+            </span>
+            <br />
+            <b>Sex:   </b>
+            <span>
+                <select name="sex">
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                </select>
+            </span>
+            <br/>
+            <b>Email: </b>
+            <span>
+                @Html.TextBox("mail", "", new { @class = "form-control" })
+            </span>
+            <br />
+            <b>Country: </b>
+            <span>
+                @Html.TextBox("country", "", new { @class = "form-control" })
+            </span>
+            <br />
+            <b>Phone: </b>
+            <span>
+                @Html.TextBox("phone", "", new { @class = "form-control", onkeypress = "return isNumberKey(event)" })
+            </span>
+            <br />
+
+
+        </div>
+        }
+    </div>
+</div>

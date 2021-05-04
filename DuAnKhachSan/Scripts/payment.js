@@ -2,6 +2,32 @@
 var frame = $('.khungchonphong')
 var index = 0;
 
+(function ($) {
+    "use strict";
+    $('.column100').on('mouseover', function () {
+        var table1 = $(this).parent().parent().parent();
+        var table2 = $(this).parent().parent();
+        var verTable = $(table1).data('vertable') + "";
+        var column = $(this).data('column') + "";
+
+        $(table2).find("." + column).addClass('hov-column-' + verTable);
+        $(table1).find(".row100.head ." + column).addClass('hov-column-head-' + verTable);
+    });
+
+    $('.column100').on('mouseout', function () {
+        var table1 = $(this).parent().parent().parent();
+        var table2 = $(this).parent().parent();
+        var verTable = $(table1).data('vertable') + "";
+        var column = $(this).data('column') + "";
+
+        $(table2).find("." + column).removeClass('hov-column-' + verTable);
+        $(table1).find(".row100.head ." + column).removeClass('hov-column-head-' + verTable);
+    });
+
+
+})(jQuery);
+
+
 $(document).ready(function () {
     $('#form_body').append($('#add_ele').html());
 });
@@ -81,4 +107,68 @@ function cal() {
         sum += (listAmount[i] * listGia[i]);
     }
     $('#total').text(sum * night + ' VND    ');
+}
+
+function purchaseClicked() {
+    var total = $('#total');
+    var tt = total.text().trim();
+    
+    if (tt == '0 VND' || tt == '') {
+        alert("Please choose your rooms");
+    }
+    else {
+        var code = $('#code').text().trim();
+        var ci = $('#ci').text().trim();
+        var co = $('#co').text().trim();
+        var infor = [];
+        var khung = $('.khungchonphong');
+        khung.each(function (index, ele) {
+            if (index != 0) {
+                var loai = ele.childNodes[1].childNodes[1].childNodes[3].value;
+                var gia = parseInt(ele.childNodes[3].childNodes[1].childNodes[5].childNodes[3].textContent.slice(0, 7));
+                var amount = ele.childNodes[3].childNodes[1].childNodes[5].childNodes[7].childNodes[1].value;
+                infor.push({ gia: gia, loai: loai, amount: amount });
+            }
+        });
+
+        var listRoom = JSON.stringify(infor);
+        if (infor.length > 0) {
+            redirectPost("/Book/Pay", { listRoom: listRoom, code: code, ci:ci,co:co });
+        }
+    }
+
+}
+
+function redirectPost(url, data) {
+    var form = document.createElement('form');
+    document.body.appendChild(form);
+    form.method = 'post';
+    form.action = url;
+    for (var name in data) {
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = data[name];
+        form.appendChild(input);
+    }
+    form.submit();
+}
+function back() {
+    window.history.back();
+}
+function next() {
+    var code = $('#code').text().trim();
+    var ci = $('#ci').text().trim();
+    var co = $('#co').text().trim();
+    var total = $('#total').text().trim();
+    redirectPost("/Book/getCusInfo", { total: total, code: code, ci: ci, co: co });
+}
+
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode;
+    if (charCode != 46 && charCode > 31
+        && (charCode < 48 || charCode > 57))
+        return false;
+
+    return true;
 }

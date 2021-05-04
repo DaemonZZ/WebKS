@@ -65,6 +65,23 @@
             
 
         </div>
+        <div class="row">
+            <div class="col-3">
+                <b>Promotion code: </b>
+                <span id="code">@ViewBag.Code</span>
+            </div>
+            <div class="col-3"></div>
+            <div class="col-3">
+                <b>Check-in:</b>
+                <span id="ci">@ViewBag.CI</span>
+                
+            </div>
+            <div class="col-3">
+                <b>Check-out:</b>
+                <span id="co">@ViewBag.CO</span>
+            </div>
+        </div>
+        <br/>
 
         <div class="submit-btn row">
             <div class="col-3"></div>
@@ -73,7 +90,7 @@
             <div class="col-1"></div>
             <div class="col-2">
                 <input class="btn btn-success" type="button" value="Add Room" onclick="Add()" />
-                <input class="btn btn-primary" type="button" value="Purchase" />
+                <input class="btn btn-primary" type="button" value="Purchase" onclick="purchaseClicked()" />
             </div>
             
         </div>
