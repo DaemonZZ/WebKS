@@ -24,7 +24,7 @@ namespace DataProvider
         [StringLength(50)]
         public string lastName { get; set; }
 
-        [StringLength(5)]
+        [StringLength(6)]
         public string sex { get; set; }
 
         [StringLength(50)]

@@ -55,6 +55,7 @@
     <Compile Include="AdvertisementModel.cs" />
     <Compile Include="BookingModel.cs" />
     <Compile Include="CommentModel.cs" />
+    <Compile Include="CustomerModel.cs" />
     <Compile Include="GalleryModel.cs" />
     <Compile Include="GalleryTypeModel.cs" />
     <Compile Include="HotelDataIO.cs" />
