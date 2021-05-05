@@ -9,7 +9,7 @@
     <div class="row">
         @using(Html.BeginForm("NewCustomer", "Book",FormMethod.Post,new {style="width:100%" }))
         {
-            <div class="col-4">
+        <div class="col-4">
             <b>First name:</b>
             <span>
                 @Html.TextBox("first", "", new { @class = "form-control", id = "first" })
