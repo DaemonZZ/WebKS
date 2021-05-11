@@ -90,12 +90,14 @@ namespace DuAnKhachSan.Controllers
             {
                 total += (it.Amount * it.Gia);
             }
-            ViewBag.discost = getDiscost(code);
-            ViewBag.code = code;
             ViewBag.Total = total;
-            ViewBag.CI = ci;
-            ViewBag.CO = co;
+            DateTime checkin = DateTime.Parse(ci);
+            DateTime checkout = DateTime.Parse(co);
+            Promotion pr = new PromotionModel().getByCode(code);
 
+            BookingInfo info = new BookingInfo("",checkin, checkout, pr, list);
+
+            Session["BookingInfo"] = info;
 
             return View(list);
         }
@@ -131,6 +133,8 @@ namespace DuAnKhachSan.Controllers
         {
             CustomerModel md = new CustomerModel();
             Customer cs = new Customer();
+            Customer rs;
+            cs.id = "KH"+Guid.NewGuid().ToString().Replace("-", string.Empty).Replace("+", string.Empty).Substring(0, 8);
             cs.fisrtName = first;
             cs.lastName = last;
             if (sex == 0)
@@ -144,17 +148,35 @@ namespace DuAnKhachSan.Controllers
             cs.email = mail;
             cs.phone = phone;
             cs.country = country;
+            cs.typeID = 1;
+           
+            rs = md.AddCustomer(cs);
 
-            bool rs = md.AddCustomer(cs);
 
-            if (rs) return Json(new JsonResult()
+            if (rs!=null) 
             {
-                Data = new
-                {
-                    state= "ok"
+                BookingInfo bk = (BookingInfo)Session["BookingInfo"];
+                bk.CusID = rs.id;
+                if (createBookingInfo(bk))
+                    return Json(new JsonResult()
+                    {
+                        Data = new
+                        {
+                            status = "ok"
 
+                        }
+                    }, JsonRequestBehavior.AllowGet);
+                else
+                {
+                    return Json(new JsonResult()
+                    {
+                        Data = new
+                        {
+                            status = "fail create booking"
+                        }
+                    }, JsonRequestBehavior.AllowGet);
                 }
-            },JsonRequestBehavior.AllowGet);
+            } 
 
             else
             {
@@ -162,13 +184,44 @@ namespace DuAnKhachSan.Controllers
                 {
                     Data = new
                     {
-                        status = "fail"
+                        status = "fail to add customer"
                     }
                 }, JsonRequestBehavior.AllowGet);
             }
             
         }
-        
+
+        private bool createBookingInfo(BookingInfo info)
+        {
+            try
+            {
+                BookingModel bm = new BookingModel();
+                foreach (Info it in info.RoomList)
+                {
+                    Room booked = new RoomModel().getListByType(it.Loai).Where(p => p.RoomState == 1).FirstOrDefault();
+                    Booking b = new Booking();
+                    b.customerID = info.CusID;
+                    b.bookedRoom = booked.id;
+                    b.bookingDate = DateTime.Now;
+                    b.checkin = info.Ci;
+                    b.checkout = info.Co;
+                    if (info.Code != null)
+                    {
+                        b.promotion_code = info.Code.code;
+                    }
+                    b.status = 1;
+
+                    bm.Add(b);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+           
+            
+        }
     }
 
     

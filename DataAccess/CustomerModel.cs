@@ -17,11 +17,11 @@ namespace DataAccess
             this.dbc = new HotelDataContext() ;
         }
 
-        public bool AddCustomer(Customer cs)
+        public Customer AddCustomer(Customer cs)
         {
-            dbc.Customers.Add(cs);
-            bool rs = dbc.SaveChanges()>0;
-            return rs;
+            Customer cus = dbc.Customers.Add(cs);
+             dbc.SaveChanges();
+            return cus;
         }
     }
 }

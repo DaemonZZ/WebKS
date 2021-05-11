@@ -173,14 +173,14 @@ function isNumberKey(evt) {
     return true;
 }
 
-function formsubmit() {
+function formsubmit(e) {
     var first = $('#first').val();
     var last = $('#last').val();
     var sex = $('#sex').find(':selected').val();
     var mail = $('#mail').val();
     var phone = $('#phone').val();
     var country = $('#country').find(':selected').text();
-    alert(country);
+   
 
     $.ajax({
         url: "/Book/CreateCus",
@@ -195,8 +195,13 @@ function formsubmit() {
         dataType: "json",
         type: "POST",
         success: function (res) {
-
-            alert(res.toString());
+            if (res.Data.status == "ok") {
+                alert("Order successfully");
+                window.location.replace("/Home");
+            }
+            else {
+                alert(res.Data.status);
+            }
         }
     });
 }

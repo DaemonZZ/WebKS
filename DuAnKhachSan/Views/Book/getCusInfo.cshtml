@@ -17,7 +17,7 @@
             <br />
             <b>Last name:</b>
             <span>
-                @Html.TextBox("last", "", new { @class = "form-control", id= "last" })
+                @Html.TextBox("last", "", new { @class = "form-control", id = "last" })
             </span>
             <br />
             <b>Sex:   </b>
@@ -27,7 +27,7 @@
                     <option value="1">Female</option>
                 </select>
             </span>
-            <br/>
+            <br />
             <b>Email: </b>
             <span>
                 @Html.TextBox("mail", "", new { @class = "form-control", id = "mail" })
@@ -286,14 +286,14 @@
             <b>Phone: </b>
             <span>
                 @Html.TextBox("phone", "", new { @class = "form-control", onkeypress = "return isNumberKey(event)", id = "phone" })
-                
+
             </span>
             <br />
-
-                <div class="btn-submit">
-                    <input class="btn btn-primary" type="button" value="Back" onclick="back()" />
-                    <input class="btn btn-success" type="button" value="Submit" onclick="formsubmit()" />
-                </div>
+           
+            <div class="btn-submit">
+                <input class="btn btn-primary" type="button" value="Back" onclick="back()" />
+                <input class="btn btn-success" type="button" value="Submit" onclick="formsubmit()" />
+            </div>
         </div>
 
         }

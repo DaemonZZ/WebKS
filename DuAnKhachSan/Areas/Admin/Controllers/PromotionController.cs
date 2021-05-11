@@ -46,6 +46,7 @@ namespace DuAnKhachSan.Areas.Admin.Controllers
                     type.discost = discost / 100;
                     typeModel.addType(type);
                 }
+
                 type = typeModel.getByName(pro);
 
                 for (int i = 0; i < amount; i++)
