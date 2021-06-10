@@ -59,5 +59,16 @@ namespace DataAccess
             dbc.Promotions.Remove(pr);
             dbc.SaveChanges();
         }
+
+        public void changeState(string code,int state)
+        {
+            Promotion p = getByCode(code);
+            p.State = state;
+            if (state == 2)
+            {
+                p.use_date = DateTime.Now;
+            }
+            dbc.SaveChanges();
+        }
     }
 }

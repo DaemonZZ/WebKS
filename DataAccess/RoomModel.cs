@@ -89,5 +89,11 @@ namespace DataAccess
             Room r=dbc.Rooms.Where(p => p.room1 == name).FirstOrDefault();
             return r != null;
         }
+        public void ChangeState(Room r, int state)
+        {
+            r.RoomState = state;
+            dbc.Rooms.AddOrUpdate(r);
+            dbc.SaveChanges();
+        }
     }
 }

@@ -208,10 +208,13 @@ namespace DuAnKhachSan.Controllers
                     if (info.Code != null)
                     {
                         b.promotion_code = info.Code.code;
+                        PromotionModel pm = new PromotionModel();
+                        pm.changeState(info.Code.code, 2);
                     }
                     b.status = 1;
-
+                    rmd.ChangeState(booked, 0);
                     bm.Add(b);
+
                 }
                 return true;
             }
